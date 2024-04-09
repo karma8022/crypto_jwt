@@ -1,4 +1,11 @@
 import express from 'express';
+import mongoose, { mongo } from 'mongoose';
+
+mongoose.connect("mongodb+srv://actspot:actspot2024@mern-blog.m526lr4.mongodb.net/mern-blog?retryWrites=true&w=majority&appName=mern-blog").then(()=>{
+    console.log("Connected to MongoDB");
+}).catch((err)=>{
+    console.log(err);
+})
 
 const app=express();
 
