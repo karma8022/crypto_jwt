@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose, { mongo } from 'mongoose';
 import userRoutes from './routes/user.route.js';
+import authRoutes from './routes/auth.route.js';
 
 mongoose.connect("mongodb+srv://actspot:actspot2024@mern-blog.m526lr4.mongodb.net/mern-blog?retryWrites=true&w=majority&appName=mern-blog").then(()=>{
     console.log("Connected to MongoDB");
@@ -9,9 +10,11 @@ mongoose.connect("mongodb+srv://actspot:actspot2024@mern-blog.m526lr4.mongodb.ne
 })
 
 const app=express();
+app.use(express.json());
 
 app.listen(3000,()=>{
     console.log("Server is running on port 3000");
 })
 
 app.use('/api/user',userRoutes)
+app.use('/api/auth',authRoutes)
