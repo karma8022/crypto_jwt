@@ -46,8 +46,7 @@ export default function SignUp() {
             <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>ACTSPOT</span>
         </Link>
         <p className='text-sm mt-5'>
-          Signup page for the ACTSPOT project. 
-          Sign in with an email, password OR you can use google to sign in 
+          Unlock Your Potential
         </p>
         </div>
         {/* right */}
