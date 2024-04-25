@@ -52,7 +52,7 @@ export const signin = async (req, res, next) => {
 
         const token = jwt.sign(
             {id: validUser._id,},
-            "aaron123123123",
+            "testsalt",
             {
                 expiresIn: "1d"
             }
@@ -72,7 +72,7 @@ export const google = async (req, res, next) => {
     try {
         const user = await User.findOne({email});
         if(user){
-            const token = jwt.sign({id: user._id}, "aaron123123123", {expiresIn: "1d"});
+            const token = jwt.sign({id: user._id}, "testsalt", {expiresIn: "1d"});
             const {password: pass, ...rest} = user._doc;    
             res.status(200).cookie("access_token", token, {httpOnly: true,}).json(rest);
         }
@@ -86,7 +86,7 @@ export const google = async (req, res, next) => {
                 password: hashedPassword
             });
             await newUser.save();
-            const token = jwt.sign({id: newUser._id}, "aaron123123123", {expiresIn: "1d"});
+            const token = jwt.sign({id: newUser._id}, "testsalt", {expiresIn: "1d"});
             const {password: pass, ...rest} = newUser._doc;
             res.status(200).cookie("access_token", token, {httpOnly: true,}).json(rest);
         }
